@@ -10,6 +10,7 @@ Provide sequence of linear embeddings of these patches as an input to transforme
 Here, image patches are treated as the same way as tokens (as in NLP tasks)
 Train the model on image classification in supervised fashion (pre-training with labels)
 Fine-tuning on a downstream dataset
-Method
 
-source: Google AI
+## Method
+![](/images/vision_transformer.gif)
+<div align="center"> Source: <a href='https://ai.googleblog.com/2020/12/transformers-for-image-recognition-at.html'>Google AI Blog</a> </div>
