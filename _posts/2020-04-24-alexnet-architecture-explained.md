@@ -21,7 +21,7 @@ AlexNet solves the problem of image classification with subset of ImageNet datas
 
 The input to AlexNet is an RGB image of size 256\*256. This mean that all the images in training set and test images are of size 256\*256. If the input image is not 256\*256, image is rescaled such that shorter size is of length 256, and cropped out the central 256\*256 patch from the resulting image.
 
-![](images/AlexNet-Resize-Crop-Input.jpg)
+![](/images/AlexNet-Resize-Crop-Input.jpg)
 
 [source](https://www.learnopencv.com/wp-content/uploads/2018/05/AlexNet-Resize-Crop-Input.jpg)
 
@@ -31,7 +31,7 @@ The image is trained with raw RGB values of pixels. So, if input image is graysc
 
 AlexNet contains five convolutional layers and three fully connected layers - total of eight layers. AlexNet architecture is shown below:
 
-![](images/AlexNet-1.png)
+![](/images/AlexNet-1.png)
 
 AlexNet Architecture
 
@@ -45,7 +45,7 @@ The standard way of introducing nonlinearity is using tanh: f(x) = tanh(x) where
 
 These are saturating nonlinearities which are much slow than non-saturating nonlinearity f(x) = max(0, x), in terms of training time with gradient descent.
 
-![](images/activation-functions.png)
+![](/images/activation-functions.png)
 
 fig. (Tanh and Relu activation functions)
 
@@ -77,7 +77,7 @@ The first form of data augmentation is translating the image and horizontal refl
 
 Dropout is a regularization technique to reduce overfitting and improving generalization of deep neural networks. 'Dropout' refers to dropping out units(hidden and visible) in a neural network. We can interpret dropout as the probability of training  a given node in a layer, where 1.0 means no dropout and 0.5 means 50% of hidden neurons are ignored.
 
-![](images/dropout.png)
+![](/images/dropout.png#left)
 
 Dropout
 
@@ -87,3 +87,7 @@ References:
 
 1. [ImageNet Classification with Deep Convolutional Neural Networks](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)  by Alex Krizhevsky, Ilya Sutskever, and Geoffrey E. Hinton, 2012
 2. [https://www.learnopencv.com/understanding-alexnet/](https://www.learnopencv.com/understanding-alexnet/)
+
+img[src*='#left'] {
+    float: right;
+}
