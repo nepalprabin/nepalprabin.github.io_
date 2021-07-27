@@ -1,4 +1,24 @@
 # About
 
-This is where you put the contents of your *About* page. Like all your pages, it's in [Markdown](https://guides.github.com/features/mastering-markdown/) format.
+I am a Machine Learning Engineer based on Nepal. I am currently working on Computer Vision (with little intersection of NLP). Besides this, I use JavaScript(Nodejs and Vuejs) for Full Stack Development.
 
+Major interests:
+
+- Software architecture
+- Python
+- Artificial Intelligence
+- Medical Imaging
+- Self-supervised Learning
+- Learning new languages
+- Writing
+
+
+My working philosophies:
+
+- Communication and collaboration with other developers and stakeholders is the key to a successful project
+- Use of right tool for the job. A programming language is just a tool!
+- Make yourself better everyday
+### - Most important: Believe in yourself (The power to conquer the world is with in you!!
+
+
+### Besides programming I am interested in sports (football and cricket) and reading novels.
