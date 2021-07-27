@@ -1,6 +1,9 @@
 ---
 title: "AlexNet Architecture Explained"
 date: "2020-04-24"
+categories: 
+  - "computer-vision"
+  - "deep-learning"
 coverImage: "AlexNet-1.png"
 ---
 
