@@ -1,10 +1,6 @@
 ---
 title: "AlexNet Architecture Explained"
-date: "2020-04-24"
-categories: 
-  - "computer-vision"
-  - "deep-learning"
-coverImage: "AlexNet-1.png"
+"
 ---
 
 AlexNet famously won the 2012 ImageNet LSVRC-2012 competition by a large margin (15.3% vs 26.2%(second place) error rates). Here is the link to original [paper](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf).
