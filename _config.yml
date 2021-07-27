@@ -12,10 +12,10 @@ github_username: nepalprabin
 
 # Email and twitter are optional:
 email: nepal.prabinn@gmail.com
-twitter_username:prabinepal
+twitter_username: prabinepal
 
 # Set this to true to get LaTeX math equation support
-use_math:true
+use_math: true
 
 # Add your Google Analytics ID here if you have one and want to use it
 google_analytics:
