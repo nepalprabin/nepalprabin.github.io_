@@ -48,7 +48,7 @@ def content_loss(content_weight, content_current, content_original):
 After computing content loss, we can compute style loss.  
 To compute style loss, we need to first compute Gram matrix $G$. Gram matrix represents the correlation between responses of each filter. Given a feature map $F^l$ of shape ($C_l$, $M_l$), the Gram matrix is given by:  
 
-<center> $G_i_i^l$ = $sum_{k} F_i_j^lF_j_k^l$ <enter>
+$G_i_i^l$ = $sum_{k} F_i_j^lF_j_k^l$
 
 
 Gram matrix in python:
