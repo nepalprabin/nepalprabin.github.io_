@@ -1,13 +1,7 @@
 ---
 title: "Paper Explanation: A Simple Framework for Contrastive Learning of Visual Representations (simCLR)"
 date: "2021-03-26"
-categories: 
-  - "self-supervised-learning"
-tags: 
-  - "computer-vision"
-  - "deep-learning"
-  - "ssl-2"
-coverImage: "simCLR-comparison.png"
+
 ---
 
 Various self-supervised learning methods have been proposed in recent years for learning image representations. Though a lot of methods have been proposed, the performance of those methods was found less effective in terms of accuracy than those of supervised counterparts. But [SimCLR](https://arxiv.org/abs/2002.05709) has provided promising results, thus taking self-supervised learning to a new level. It uses a contrastive learning approach. This paper introduces a simple framework to learn representations from unlabeled images based on heavy data augmentation. Before going deep into simCLR and its details, let's see what contrastive learning is:
@@ -35,7 +29,7 @@ simCLR learns representations by maximizing agreement between differently augmen
 
 Inorder to learn good contrastive representation learning, simCLR consists of four major components
 
-- \[latexpage\]**Data Augmentation module**: Data augmentation is more beneficial for unsupervised contrastive learning than supervised learning. The data augmentation module transforms any given data example into two correlated views of the same example. These examples are denoted as $\\widetilde{x\_i}$ and $\\widetilde{x\_j}$, considered as positive pair. The authors mainly applied three augmentations sequentially: **random cropping** followed by resizing to the original size, random **color distortions**, and random **Gaussian blur**.
+-**Data Augmentation module**: Data augmentation is more beneficial for unsupervised contrastive learning than supervised learning. The data augmentation module transforms any given data example into two correlated views of the same example. These examples are denoted as $\\widetilde{x\_i}$ and $\\widetilde{x\_j}$, considered as positive pair. The authors mainly applied three augmentations sequentially: **random cropping** followed by resizing to the original size, random **color distortions**, and random **Gaussian blur**.
 - **Encoder**: A neural base encoder $f(.)$ is used that extracts features from augmented data examples. ResNet is used as the architecture to extract those representations. The learned representation is the result of the average pooling layer.
 - **Projection head**: The projection head $g(.)$ is a MLP with one hidden layer that maps representations from the base encoder network to space where contrastive loss is applied. Here ReLU activation function is used for non-linearity.
 - **Contrastive loss function**: For any given set of $\\widetilde{x\_k}$ which includes positive example pair $\\widetilde{x\_i}$ and $\\widetilde{x\_j}$, contrastive prediction task aims to identify $\\widetilde{x\_j}$ in {$\\widetilde{x\_k}$} (here i and k are not equal) for given $\\widetilde{x\_i}$
@@ -57,8 +51,7 @@ First, we generate a batch of N examples and define contrastive prediction tasks
 
 After getting the representations of the augmented images, the similarity of those images is calculated using cosine similarity. For two augmented image, $x\_i$ and $x\_j$, cosine similarity is calculated on projected representations $z\_i$ and $z\_j$.
 
-\[latexpage\]**  
-$s\_{i,j} = \\frac{z\_i^{T}z\_j}{||z\_i||||z\_j||}$**, where  
+**$s\_{i,j} = \\frac{z\_i^{T}z\_j}{||z\_i||||z\_j||}$**, where  
 $T$ denotes a temperature parameter,  
 $||z||$ is the norm of the vector
 
@@ -66,7 +59,6 @@ simCLR uses _NT-Xent_ (Normalized temperature-scaled cross entropy loss) for cal
 
 ![](https://prabinnepal.com/wp-content/uploads/2021/03/NT-Xent-loss.png)
 
-\[latexpage\]  
 Here $z\_i$ and $z\_j$ are the output vectors obtained from the projection head
 
 After training simCLR on the contrastive learning task, it can be used for transfer learning. For downstream tasks, representations from encoder are used rather than the representation from projection head. These representations can be used for tasks such as classification, detection.
