@@ -3,7 +3,6 @@ title: "Neural style transfer and its working"
 date: "2020-08-23"
 
 ---
-
 Have you ever used an app called Prisma that styles your image using popular paintings and turns your photo stunning? If that's the case then, the app you are using is the result of style transfer; a computer vision technique that combines your images with artistic style.
 
 ## **Introduction**
@@ -41,14 +40,16 @@ Content loss takes content weight which is a scalar that gives weighting for the
 $C_l$ is the number of channels in layer $l$, $H_l$ and $W_l$ are width and height.
 
 # Content loss in python
+``` python
 def content_loss(content_weight, content_current, content_original):
     return torch.sum(content_weight * (content_current-content_original)**2)
-
+```
  
 After computing content loss, we can compute style loss.  
-To compute style loss, we need to first compute Gram matrix $G$. Gram matrix represents the correlation between responses of each filter. Given a feature map $F^l$ of shape ($C_l$, $M_l$), the Gram matrix is given by:  
-$G_i_i^l$ = $sum_{k} F_i_j^lF_j_k^l$
-
+To compute style loss, we need to first compute Gram matrix $G$. Gram matrix represents the correlation between responses of each filter. Given a feature map $`\F^l`$ of shape `($C_l$, $M_l$)`, the Gram matrix is given by:  
+``` math
+$$G_i_i^l$ = $sum_{k} F_i_j^lF_j_k^l$$
+```
 Gram matrix in python:
 ``` python
 def gram_matrix(features, normalize=True):
