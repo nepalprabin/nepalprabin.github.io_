@@ -1,10 +1,6 @@
 ---
 title: "Deep Residual Learning for Image Recognition (ResNet paper explained)"
-date: "2021-01-01"
-categories: 
-  - "computer-vision"
-  - "deep-learning"
-coverImage: "plain-and-resnet-performance.png"
+
 ---
 
 Deep Neural Networks tend to provide more accuracy as the number of layers increases. But, as we go more deeper in the network, the accuracy of the network decreases instead of increasing. As more layers are stacked, there occurs a problem of \*vanishing gradients. The paper mention that vanishing gradient has been addressed by normalized initialization and intermediate normalization layers. With the increase in depth, the accuracy gets saturated and then degrades rapidly.
