@@ -42,30 +42,30 @@ Now let's go ahead and see how we can implement this architecture using [tensorf
 Importing libraries
 
 Starting the convolution blocks with the input layer
-
+``` python
 input = Input(shape=(224,224,3))
-
+```
 1st block consists of 2 convolution layer each with 64 filters of 3\*3 and followed by a max-pool layer with stride 2 and pool-size of 2. All hidden layer uses ReLU for non-linearity.
-
+``` python
 x = Conv2D(filters=64, kernel\_size=3, padding='same', activation='relu')(input)
 x = Conv2D(filters=64, kernel\_size=3, padding='same', activation='relu')(x)
 x = MaxPool2D(pool\_size=2, strides=2, padding='same')(x)
-
+```
 2nd block also consists of 2 convolution layer each with 128 filters of 3\*3 and followed by a max-pool layer with stride 2 and pool-size of 2.
-
+``` python
 x = Conv2D(filters=128, kernel\_size=3, padding='same', activation='relu')(x)
 x = Conv2D(filters=128, kernel\_size=3, padding='same', activation='relu')(x)
 x = MaxPool2D(pool\_size=2, strides=2, padding='same')(x)
-
+```
 3rd block consists of 3 convolution layer each with 256 filters of 3\*3 and followed by a max-pool layer with stride 2 and pool-size of 2.
-
+``` python
 x = Conv2D(filters=256, kernel\_size=3, padding='same', activation='relu')(x)
 x = Conv2D(filters=256, kernel\_size=3, padding='same', activation='relu')(x)
 x = Conv2D(filters=256, kernel\_size=3, padding='same', activation='relu')(x)
 x = MaxPool2D(pool\_size=2, strides=2, padding='same')(x)
-
+```
 4th and 5th block consists of 3 convolutional layers with 512 filters each. In between these blocks, a max-pool layer is used with stride of 2 and pool-size of 2.
-
+``` python
 x = Conv2D(filters=512, kernel\_size=3, padding='same', activation='relu')(x)
 x = Conv2D(filters=512, kernel\_size=3, padding='same', activation='relu')(x)
 x = Conv2D(filters=512, kernel\_size=3, padding='same', activation='relu')(x)
@@ -74,14 +74,16 @@ x = Conv2D(filters=512, kernel\_size=3, padding='same', activation='relu')(x)
 x = Conv2D(filters=512, kernel\_size=3, padding='same', activation='relu')(x)
 x = Conv2D(filters=512, kernel\_size=3, padding='same', activation='relu')(x)
 x = MaxPool2D(pool\_size=2, strides=2, padding='same')(x)
-
+```
 The output from 5th convolution block is Flattened which gives 4096 units. This fully connected layer is connected to another FC layer having same number of units. The final fully connected layer contains 1000 units and softmax activation which is used for classification of 1000 classes
-
+``` pyhton
 #Dense Layers
 x = Flatten(x)
 x = Dense(units=4096, activation='relu')(x)
 x = Dense(units=4096, activation='relu')(x)
 output = Dense(units=1000, activation='softmax')(x)
-
+```
+``` python
 from tensorflow.keras import Model
 model = Model(inputs=input, outputs=output)
+```
