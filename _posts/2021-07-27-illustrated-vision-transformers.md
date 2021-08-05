@@ -30,7 +30,7 @@ An extra learnable embedding is attacheed to the sequence of embedded patches. I
 ## Components of Vision Transformer
 Since Vision Transformer is based on standard transformer architecture, only difference it being used for image tasks rather than for text, components used here is almost the same. Here, we discuss the components used in Vision transformer along with its significance. 
 
-> Side note: If you want to dive deep into transformer, then [here](https://jalammar.github.io/illustrated-transformer/) by Jay Alamamr is a good place to start with.
+> Side note: If you want to dive deep into transformer, then [here](https://jalammar.github.io/illustrated-transformer/) by Jay Alammar is a good place to start with.
 
 ### Patch embeddings
 As the name of the paper "An Image is worth $16 * 16$ words transformers", the main take away of the paper is the breakdown of images into patches. Given the image: $x \, \varepsilon \, \mathbb{R}^{(H * W * C)}$ it is reshaped into 2D flattened patches $x_p \, \varepsilon \, \mathbb{R}^{N*(P^2.C))}$,
@@ -39,3 +39,4 @@ As the name of the paper "An Image is worth $16 * 16$ words transformers", the m
 
 
 ## Learnable embedding ```class```
+A learnable embeding is added to the embeded patches
