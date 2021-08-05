@@ -1,17 +1,20 @@
 # Illustrated Vision Transformers
 
-Ever since Transformer was introduced in 2017, there has been a huge success in the field of Natural Language Processing (NLP). Almost all NLP tasks use Transformers and it’s been a huge success. The main reason for the effectiveness of the Transformer was its ability to handle long-term dependencies compared to RNNs and LSTMs. After its success in NLP, there have been various approaches to its usage for Computer Vision tasks. This paper by Dosovitskiy et al. proposes using the transformer and has achieved some great results in various Computer Vision tasks.
 
-Vison Transformer (ViT) makes use of an extremely large dataset while training the model. While training on datasets such as ImageNet (paper labels ImageNet as a mid-sized dataset), the accuracies of the model fall below ResNets. This is because the Transformer lack inductive bias such as translation equivariance and locality, thus it does not generalize well when trained on insufficient data.
+## Introduction
+
+Ever since Transformer was introduced in 2017, there has been a huge success in the field of Natural Language Processing (NLP). Almost all NLP tasks use Transformers and it’s been a huge success. The main reason for the effectiveness of the Transformer was its ability to handle long-term dependencies compared to RNNs and LSTMs. After its success in NLP, there have been various approaches to its usage for Computer Vision tasks. This paper [An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale](https://arxiv.org/abs/2010.11929) by Dosovitskiy et al. proposes using the transformer and has achieved some great results in various Computer Vision tasks.
+  
+  Vison Transformer (ViT) makes use of an extremely large dataset while training the model. While training on datasets such as ImageNet (paper labels ImageNet as a mid-sized dataset), the accuracies of the model fall below ResNets. This is because the Transformer lack inductive bias such as translation equivariance and locality, thus it does not generalize well when trained on insufficient data.
 
 ### Overview of Vision Transformer
-
-
 - Split image into patches
 - Provide sequence of linear embeddings of these patches as an input to transformer (flattening the image)
   Here, image patches are treated as the same way as tokens (as in NLP tasks)
-- Train the model on image classification in supervised fashion (pre-training with labels)
-- Fine-tuning on a downstream dataset
+- Add positional embeddings and a learnable embedding ```class``` (similar to BERT) to each patch embeddings
+- Pass these (patch + positional + ```class```] embeddings through Transformer encoder and get the output values for each ```class``` tokens
+- Pass the representation of ```class``` through MLP head and get the final class predictions.
+
 
 ## Method
 ![](/images/vision_transformer.gif)
@@ -23,6 +26,9 @@ Figure above depicts the overview of Vision Transformer. As shown in the figure,
 
 
 ## How is an image changed into sequence of vectors to feed into the transformer?
+Let's decode above figure by taking a RGB image of size $256 * 256 * 3$. The first step is to create patches of size $16 * 16$ from input image. We can create $16 * 16 = 256$ total patches. After splitting input images into patches, another step is to lineary place all splitted images. As seen in the figure, first patch is placed on the left most side and right most on the far right. Then, we linearly project these patches to get $1 * 768$ vector representations. These representation is known as patch embeddings. The size of patch embedding becomes $256 * 768$ (since we have 256 total patches with each patch represented as $1 * 768$ vector. 
+
+
 As we know, the [transformer](https://arxiv.org/abs/1706.03762) takes 1D sequence of embeddings as inputs. To match such format, we need to reshape our 2D images. Given the image of size $(H * W * C)$, the paper reshaped into a sequence of flattened 2D patches $x_p \, \varepsilon \, \mathbb{R}^{N*(P^2.C))}$.
 
 An extra learnable embedding is attacheed to the sequence of embedded patches. It is a class embedding (similar to [BERT](https://arxiv.org/abs/1810.04805)'s ```[class]``` token. This extra learnable classification token is used to predict the class of input image which is implemented by a MLP head.
@@ -39,4 +45,4 @@ As the name of the paper "An Image is worth $16 * 16$ words transformers", the m
 
 
 ## Learnable embedding ```class```
-A learnable embeding is added to the embeded patches
+A learnable embeding is added to the embeded patches $z_0^0 = x_{class}$. The state of this embedding class at the output of Transformer encoder $z_L^0$ serves as the representation $y$. This classification head is attached to $z_L^0$ during both pre-training and fine-tuning. 
