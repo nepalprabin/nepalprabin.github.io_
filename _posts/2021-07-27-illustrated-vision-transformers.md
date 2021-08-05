@@ -28,6 +28,7 @@ Figure above depicts the overview of Vision Transformer. As shown in the figure,
 ## How is an image changed into sequence of vectors to feed into the transformer?
 Let's decode above figure by taking a RGB image of size $256 * 256 * 3$. The first step is to create patches of size $16 * 16$ from input image. We can create $16 * 16 = 256$ total patches. After splitting input images into patches, another step is to lineary place all splitted images. As seen in the figure, first patch is placed on the left most side and right most on the far right. Then, we linearly project these patches to get $1 * 768$ vector representations. These representation is known as patch embeddings. The size of patch embedding becomes $256 * 768$ (since we have 256 total patches with each patch represented as $1 * 768$ vector. 
 
+Next, we prepend learnable embedding ```class``` token and position embeddings along with patch embeddings making the size $257 * 768$. Here, position embeddings are used to retain positional information. After converting images into vector representation, we need to send image in order as transformer doesnot know the order of the patches unlike CNNs. Due to this, we need to manually add some information about the position of the patches.
 
 As we know, the [transformer](https://arxiv.org/abs/1706.03762) takes 1D sequence of embeddings as inputs. To match such format, we need to reshape our 2D images. Given the image of size $(H * W * C)$, the paper reshaped into a sequence of flattened 2D patches $x_p \, \varepsilon \, \mathbb{R}^{N*(P^2.C))}$.
 
