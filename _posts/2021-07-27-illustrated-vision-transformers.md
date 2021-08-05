@@ -23,6 +23,13 @@ Figure above depicts the overview of Vision Transformer. As shown in the figure,
 
 
 ## How is an image changed into sequence of vectors to feed into the transformer?
-As we know, the [transformer](https://arxiv.org/abs/1706.03762) takes 1D sequence of embeddings as inputs. To match such format, we need to reshape our 2D images. Given the image of size $(H * W * C)$, the paper reshaped into a sequence of flattened 2D patches $x_p \varepsilon \mathbb{R}^{N*(P^2.C))}$.
+As we know, the [transformer](https://arxiv.org/abs/1706.03762) takes 1D sequence of embeddings as inputs. To match such format, we need to reshape our 2D images. Given the image of size $(H * W * C)$, the paper reshaped into a sequence of flattened 2D patches $x_p \, \varepsilon \, \mathbb{R}^{N*(P^2.C))}$.
 
 An extra learnable embedding is attacheed to the sequence of embedded patches. It is a class embedding (similar to [BERT](https://arxiv.org/abs/1810.04805)'s ```[class]``` token. This extra learnable classification token is used to predict the class of input image which is implemented by a MLP head.
+
+## Components of Vision Transformer
+Since Vision Transformer is based on standard transformer architecture, only difference it being used for image tasks rather than for text, components used here is almost the same. Here, we discuss the components used in Vision transformer along with its significance. 
+
+> Side note: If you want to dive deep into transformer, then [here](https://jalammar.github.io/illustrated-transformer/) by Jay Alamamr is a good place to start with.
+
+### Patch embeddings
