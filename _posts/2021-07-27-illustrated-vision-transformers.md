@@ -35,5 +35,7 @@ Since Vision Transformer is based on standard transformer architecture, only dif
 ### Patch embeddings
 As the name of the paper "An Image is worth $16*16$ words transformers", the main take away of the paper is the breakdown of images into patches. Given the image $x \varepsilon \mathbb{R}^(H*W*C), it is reshaped into 2D flattened patches: $x_p \, \varepsilon \, \mathbb{R}^{N*(P^2.C))}$,
                         where,
-                            N=/frac{H.W}{P^2}, $(P, P)$ is the resolution of each image patch.
-                       
+                            N=$/frac{H.W}{P^2}$, $(P, P)$ is the resolution of each image patch.
+
+
+## Learnable embedding ```class```
