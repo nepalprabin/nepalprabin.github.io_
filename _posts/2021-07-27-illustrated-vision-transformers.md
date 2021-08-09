@@ -63,3 +63,9 @@ from feature maps of a CNN. In this hybrid model, the patch embedding
 projection E (Eq. 1) is applied to patches extracted from a CNN feature map. As a special case,
 the patches can have spatial size 1x1, which means that the input sequence is obtained by simply
 flattening the spatial dimensions of the feature map and projecting to the Transformer dimension.
+
+
+## References
+- [An image is worth 16 * 16 words: Transformers for image recognition at scale](https://arxiv.org/pdf/2010.11929.pdf)
+- [ViT Blog - Aman Arora](https://amaarora.github.io/2021/01/18/ViT.html)
+- [The AI Summer](https://theaisummer.com/vision-transformer/)
