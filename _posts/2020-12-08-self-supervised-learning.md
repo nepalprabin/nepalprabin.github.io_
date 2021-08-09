@@ -20,8 +20,7 @@ _\*Pre-text task: These are the tasks that are used for pre-training
 
 ![](https://prabinnepal.com/wp-content/uploads/2020/12/self-supervised-learning.png)
 
-A general pipeline of self-supervised learning  
-[source](https://arxiv.org/pdf/1902.06162.pdf)
+<div align="center">A general pipeline of self-supervised learning</div>[source](https://arxiv.org/pdf/1902.06162.pdf)
 
 ## Self-supervised Techniques for Images
 
