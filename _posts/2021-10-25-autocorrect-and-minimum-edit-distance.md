@@ -31,7 +31,7 @@ Now let's see each of the points in detail.
   as <code>deah</code>. If we write <code>deer</code> instead of <code>dear</code>, then we would not be able to identify misspelled word because <code>deer</code> is present in vocab,
   though it is contextually incorrect.
   
-  #### 2. Find strings n edit distance away
+#### 2. Find strings n edit distance away
   Edit is an operation that is performed on a string to change it. 
   - Types of edit:
       - Insert          (add a letter)                  <code>'to': 'top', 'two'</code>
@@ -40,11 +40,11 @@ Now let's see each of the points in detail.
       - Replace         (change 1 letter to another)    <code>'jaw': 'jar', 'paw'</code>
 Using these edits, we can find all possible strings that are <code>n</code> edits away. 
 
-  #### 3. Filter candidates
+#### 3. Filter candidates
   After findings strings that are n edit distance away, next step is to filter those strings. After applying edits, the strings are compared with the vocab, and if 
   those strings are not present in vocab, they are discarded. This, way we get a list of actual words.
   
-  ### 4. Calculate the word probabilities
+#### 4. Calculate the word probabilities
   The final step is to calculate the word probabilities and find the most likely word from the vocab. Given the sentence <code>I am learning AI because AI is the new 
   electricity</code>, we find occurrence of each word and calculate the probability. Probability of given word <code>w</code> can be calculated as the ratio of the count
   of word <code>w</code> to the total size of the corpus.
@@ -52,9 +52,9 @@ Using these edits, we can find all possible strings that are <code>n</code> edit
   $P(w) = \frac{C(w)}{V}$,
   
   where:
-  - $P(w) - Probability of a word$
-  - $C(w) - Number of times the word appears$
-  - $V    - Total size of the corpus$
+  - $P(w) - Probability \ of\ a\ word$
+  - $C(w) - Number \ of \ times \ the \ word \ appears$
+  - $V    - Total \ size \ of \ the \ corpus$
   
 
   
