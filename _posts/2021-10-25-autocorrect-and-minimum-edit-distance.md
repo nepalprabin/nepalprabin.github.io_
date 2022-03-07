@@ -2,7 +2,7 @@
 > This is my brief note from *DeepLearning.AI's* [NLP Specialization Course](https://www.coursera.org/specializations/natural-language-processing).
 
 ## What is Autocorrect?
-Autocorrect is an application that changes misspelled word into a correct word. When writing messages or drafting an email, we may have noticied that if we type any words
+Autocorrect is an application that changes misspelled word into a correct word. When writing messages or drafting an email, you may have noticied that if we type any words
 that is misspelled, then that word automatically gets corrected with correct spelling and based on the context.
 
 <p align="center">
@@ -57,4 +57,22 @@ Using these edits, we can find all possible strings that are <code>n</code> edit
   - $V    - Total \ size \ of \ the \ corpus$
   
 
+## Minimum Edit Distance
+  Till now, we have seen how edit distance works and what are its applications in NLP domain. Now let's look at the <i>minimum edit distance</i>.
   
+  <b>Minimum edit distance</b> is the minimum number of edits required to transform one string to another. It is used in various applications such as spelling correction, machine translation, DNA sequencing, and many more. To calculate minimum edit distance, we use three types of operations which is also discussed above, i.e., insert, delete and replace.
+  
+  For example:
+  Consider source word <code>deer</code> and target word <code>door</code>. To change source to target, we need to perform two replace operations i.e., replace each of <code>e</code> to <code>o</code>. Here number of edits is 2, but in minimum distance distance, there are cost associated with different edit operations.
+
+  |   Edit Operations        | Cost    |
+  | -----------|:----:|
+  | Insert     | 1    |
+  | Delete     | 1    |
+  | Replace    | 2    |
+
+Using above table, the edit distance for the above problem is: Edit distance = <code>2 x replace cost</code> = <code>2x2</code> = <code>4</code>
+
+This is a brute force method where we are simply looking at the source and target word to calculate the edit distance. If we have large sentence, calculating edit distance with mentioned approach becomes tedious. To make things simpler, we can opt for tabular method using Dynamic Programming approaches.
+   
+
