@@ -17,3 +17,9 @@ Part of Speech tagging simply means assigning these tags to the word of a senten
   - Named entites
   - Co-reference resoultion
   - Speech recognition
+
+
+## Markov Chains
+Markov chains is a type of stochastic model that describes a sequence of possible events. It experiences transition from one state to another according to probabilistic rules. Using markov chain, to get probability of each events, it needs only the state of previous events.
+
+Markov chains consist of a directed graph. The circles of the graph represents the state of the model. The change of state of the system are called transitions.
