@@ -42,9 +42,9 @@ Inorder to learn good contrastive representation learning, simCLR consists of fo
 
 First, we generate a batch of N examples and define contrastive prediction tasks on augmented examples. After applying a series of data augmentation techniques random(crop + resize + color distortion + grayscale) on N examples, 2N data points are generated (since we are generating similar pairs in a batch). Each augmented image is passed in a pair through the base encoder to get a representation from the image. Followed by the base encoder, a projection head is used that maps the base encoder to the representation $z\_i$ and $z\_j$ as presented in the paper. For each augmented image, we get embedding vectors for it. These embedding vectors are later subjected for calculating loss.
 
-![](https://prabinnepal.com/wp-content/uploads/2021/03/simCLR_alg.png)
+<div align="center"><img src="/images/simCLR_alg.png"></div>
 
-**simCLR algorithm**
+<p align="center"><b>simCLR algorithm</b></p>
 
 ## Calculating loss
 
@@ -56,7 +56,7 @@ $||z||$ is the norm of the vector
 
 simCLR uses _NT-Xent_ (Normalized temperature-scaled cross entropy loss) for calculating the loss.
 
-![](https://prabinnepal.com/wp-content/uploads/2021/03/NT-Xent-loss.png)
+<div align="center"><img src="/images/NT-Xent-loss.png"></div>
 
 Here $z\_i$ and $z\_j$ are the output vectors obtained from the projection head
 
@@ -66,11 +66,11 @@ After training simCLR on the contrastive learning task, it can be used for trans
 
 The proposed simCLR outperformed previous self-supervised and semi-supervised methods on ImageNet. A linear classifier trained on self-supervised representations learned by SimCLR achieves 76.5% top-1 accuracy, which is a 7% relative improvement over previous state-of-the-art, matching the performance of a supervised ResNet-50. When fine-tuned on only 1% of the labels, we achieve 85.8% top-5 accuracy, outperforming AlexNet with 100× fewer labels.
 
-![](https://prabinnepal.com/wp-content/uploads/2021/03/simCLR-comparison.png)
+<div align="center"><img src="/images/simCLR-comparison.png"></div>
 
-ImageNet Top-1 accuracy of linear classifiers trained  
+<p align="center">ImageNet Top-1 accuracy of linear classifiers trained  
 on representations learned with different self-supervised methods (pre-trained on ImageNet). Gray cross indicates supervised  
-ResNet-50. Our method, SimCLR, is shown in bold
+ResNet-50. Our method, SimCLR, is shown in bold</p>
 
 ## References
 
