@@ -13,17 +13,17 @@ VGGNet is a Convolutional Neural Network architecture proposed by Karen Simonyan
 
 The input to VGG based convNet is a 224*224 RGB image. Preprocessing layer takes the RGB image with pixel values in the range of 0 - 255 and subtracts the mean image values which is calculated over the entire ImageNet training set. 
 
-![](https://prabinnepal.com/wp-content/uploads/2020/09/vggnet.png)
+<div align="center"><img src="/images/vggnet.png"></div>
 
-Fig. A visualization of the VGG architecture ([source](https://www.cs.toronto.edu/~frossard/post/vgg16/))
+<p align="center">Fig. A visualization of the VGG architecture (<a href="https://www.cs.toronto.edu/~frossard/post/vgg16/">source</a>)</p>
 
 The input images after preprocessing are passed through these weight layers. The training images are passed through a stack of convolution layers. There are total of 13 convolutional layers and 3 fully connected layers in VGG16 architecture. VGG has smaller filters (3*3) with more depth instead of having large filters. It has ended up having the same effective receptive field as if you only have one 7 x 7 convolutional layers.
 
 Another variation of VGGNet has 19 weight layers consisting of 16 convolutional layers with 3 fully connected layers and same 5 pooling layers. In both variation of VGGNet there consists of two Fully Connected layers with 4096 channels each which is followed by another fully connected layer with 1000 channels to predict 1000 labels. Last fully connected layer uses softmax layer for classification purpose.
 
-![](https://prabinnepal.com/wp-content/uploads/2020/09/vgg16-and-19.jpeg)
+<div align="center"><img src="/images/vgg16-and-19.jpeg"</div>
 
-VGG 16 and VGG 19 Layers ([source](https://towardsdatascience.com/architecture-comparison-of-alexnet-vggnet-resnet-inception-densenet-beb8b116866d))
+<p align="center">VGG 16 and VGG 19 Layers (<a href="https://towardsdatascience.com/architecture-comparison-of-alexnet-vggnet-resnet-inception-densenet-beb8b116866d"> source</a>)</p>
 
 **Architecture walkthrough:**
 
