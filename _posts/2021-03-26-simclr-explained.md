@@ -12,11 +12,13 @@ Contrastive learning is a framework that learns similarities/dissimilarities fro
 
 To illustrate this in another way, you're told to chose a picture that is similar to the picture on the left i.e, cat (on the image below). You look at the picture and find the image from a bunch of images present(on the right side) that is similar to the cat. This way, you contrast between similar and dissimilar objects. The same is the case with contrastive learning. Using this approach we can train a machine learning model to classify between similar and dissimilar objects.
 
-![](https://prabinnepal.com/wp-content/uploads/2021/03/contrastive-puzzle.gif)
+<div align="center">
+<img src="/images/contrastive-puzzle.gif">
+ </div>
+<p align="center">Source: GoogleAI</p>
 
-Source: GoogleAI
 
-Contrastive learning approaches only need to define the similarity distribution in order to sample a positive input $x^{+} \\sim\\ p^{+}(.|x)$, and a data distribution for a negative input $x^{-} \\sim\\ p^{-}(.|x)$, with respect to an input sample $x$. The goal of Contrastive learning is: the representation of similar samples should be mapped close together, while that of dissimilar samples should be further away from embedding space.
+Contrastive learning approaches only need to define the similarity distribution in order to sample a positive input $x^{+} \\sim\\ p^{+}(.|x)$ , and a data distribution for a negative input $x^{-} \\sim\\ p^{-}(.|x)$, with respect to an input sample $x$. The goal of Contrastive learning is: the representation of similar samples should be mapped close together, while that of dissimilar samples should be further away from embedding space.
  
 > Source: [Contrastive Representation Learning: A Framework and Review](https://arxiv.org/abs/2010.05113)
 
@@ -32,10 +34,9 @@ Inorder to learn good contrastive representation learning, simCLR consists of fo
 - **Projection head**: The projection head $g(.)$ is a MLP with one hidden layer that maps representations from the base encoder network to space where contrastive loss is applied. Here ReLU activation function is used for non-linearity.
 - **Contrastive loss function**: For any given set of $\\widetilde{x\_k}$ which includes positive example pair $\\widetilde{x\_i}$ and $\\widetilde{x\_j}$, contrastive prediction task aims to identify $\\widetilde{x\_j}$ in {$\\widetilde{x\_k}$} (here i and k are not equal) for given $\\widetilde{x\_i}$
 
-![](https://prabinnepal.com/wp-content/uploads/2021/03/simCLR-framework.gif)
-
-**simCLR Framework**  
-source: [googleai](https://ai.googleblog.com/2020/04/advancing-self-supervised-and-semi.html)
+<div align="center"><img src="/images/simCLR-framework.gif"></div>
+ 
+<p align="center"><b>simCLR Framework</b> <a href="https://ai.googleblog.com/2020/04/advancing-self-supervised-and-semi.html">Google AI</a></p>
 
 ## Working of simCLR algorithm
 
