@@ -18,9 +18,12 @@ Self-supervised learning is a learning framework that does not use human-labeled
 _\*Pre-text task: These are the tasks that are used for pre-training  
 \*\*Downstream task: These are the task that utilizes pre-trained model or components that can be used to perform tasks such as image recognition, segmentation._
 
-![](https://prabinnepal.com/wp-content/uploads/2020/12/self-supervised-learning.png)
+<!-- ![](/images/self-supervised-learning.png) -->
+<div align="center"><img src="/images/self-supervised-learning.png"></div>
 
-<div align="center">A general pipeline of self-supervised learning</div>[source](https://arxiv.org/pdf/1902.06162.pdf)
+
+<p align="center">A general pipeline of self-supervised learning (<a href="https://arxiv.org/pdf/1902.06162.pdf">source</a>) </p>  
+
 
 ## Self-supervised Techniques for Images
 
@@ -30,12 +33,13 @@ Many ideas have been proposed for self-supervised learning on images. A more com
 
 To learn representation by predicting image rotations, [Gidaris et al.](https://arxiv.org/abs/1803.07728) proposed an architecture where features are learned by training Convolution Nets to recognize rotations that are applied to the image before feeding to the network. This set of geometric transformations defines the classification pretext task that the model has to learn which can later be used for downstream tasks. Geometric transformation is made such that the image is rotated through 4 different angles (0, 90, 270, and 360). This way, our model has to predict one of the 4 transformations that are done on the image. To predict the task, our model has to understand the concept of objects such as their location, their type, and their pose.
 
-![](https://prabinnepal.com/wp-content/uploads/2020/12/self-supervised-rotation.png)
+<div align="center">
+<img src="/images/self-supervised-rotation.png">
+ </div>
 
-Illustration of the self-supervised task proposed for semantic feature learning.  
+<p align="center">Illustration of the self-supervised task proposed for semantic feature learning.  
 Given four possible geometric transformations, the 0, 90, 180, and 270 degrees rotations,  
-a ConvNet model was trained to recognize the rotation that is applied to the image that it gets as input.  
-([source](https://arxiv.org/pdf/1803.07728.pdf))
+a ConvNet model was trained to recognize the rotation that is applied to the image that it gets as input. (<a href="https://arxiv.org/pdf/1803.07728.pdf">source</a>)</p>
 
 More details at: [Unsupervised Representation Learning By Predicting Image Rotations](https://arxiv.org/pdf/1803.07728.pdf)
 
@@ -48,12 +52,14 @@ In Exemplar-CNN ( [Dosovitskiy et al., 2015](https://arxiv.org/abs/1406.6909) ),
 
 The pretext task is to discriminate between the set of surrogate class.
 
-![](https://prabinnepal.com/wp-content/uploads/2020/12/exemplarCNN-transformation.png)
-
-Several random transformations applied to one of the  
+<div align="center">
+<img src="/images/exemplarCNN-transformation.png">
+ </div>
+            
+<p align="center">Several random transformations applied to one of the  
 patches extracted from the STL unlabeled dataset. The original  
-patch is in the top left corner  
-[source](https://arxiv.org/pdf/1406.6909)
+patch is in the top left corner (
+  <a href="https://arxiv.org/pdf/1406.6909">source</a>)</p>
 
 More details at: [Discriminative Unsupervised Feature Learning with Exemplar Convolutional Neural Networks](https://arxiv.org/pdf/1406.6909.pdf)
 
@@ -61,20 +67,22 @@ More details at: [Discriminative Unsupervised Feature Learning with Exemplar Con
 
 Another approach of learning visual representation from unlabeled dataset is by training a ConvNet model to solve Jigsaw puzzle as a pretext task which can be later used for downstream tasks. In Jigsaw puzzle task, model is trained to place 9 shuffled patches back to the original position. To place shuffled patches to original position, [Noroozi et al.](https://arxiv.org/pdf/1603.09246) proposed a Context Free Network (CFN) which is a siamese CNN that uses shared weights. The patches are combined in a fully connected layer.
 
-![](https://prabinnepal.com/wp-content/uploads/2020/12/jigsaw-puzzle-1024x332.png)
+<div align="center">
+<img src="/images/jigsaw-puzzle.png">
+ </div>
 
-Learning image representations by solving Jigsaw puzzles.  
-(a) The image from which the tiles (marked with green lines) are extracted.  
-(b) A puzzle obtained by shuffling the tiles.  
+<p align="center">Learning image representations by solving Jigsaw puzzles.  
+<ul align="center">(a) The image from which the tiles (marked with green lines) are extracted.  <br>
+(b) A puzzle obtained by shuffling the tiles.  <br>
 (c) Determining the relative position between the central tile and the top two tiles from the left can be very challenging  
-[source](https://arxiv.org/pdf/1603.09246.pdf)
+  <a href="https://arxiv.org/pdf/1603.09246.pdf" align="center">source</a></ul></p>
 
 From the set of defined puzzle permutations, one permutation is randomly picked to arrange those 9 patches as per that permutation. This results CFN to return a vector with a probability value for each index. Given those 9 tiles, there will be 9! = 362,880 possible permutations. This creates difficulty in jigsaw puzzles. To control this, the paper proposed to shuffle patches according to a predefined set of permutations and configured the model to predict a probability vector over all the indices in the set.
 
-![](https://prabinnepal.com/wp-content/uploads/2020/12/cfn_architecture.png)
+<div align="center"><img src="/images/cfn_architecture.png"></div>
 
-Context Free Network Architecture  
-[source](https://arxiv.org/pdf/1603.09246.pdf)
+<p align="center">Context Free Network Architecture (<a href="https://arxiv.org/pdf/1603.09246.pdf">source)</a>  </p>
+
 
 More details at: [Unsupervised Learning of Visual Representations by Solving Jigsaw Puzzles](https://arxiv.org/pdf/1603.09246.pdf)
 
@@ -82,12 +90,12 @@ More details at: [Unsupervised Learning of Visual Representations by Solving Jig
 
 This approach by [Doersch et al](https://arxiv.org/pdf/1505.05192), predicts position of second patch of the image that is relative to the first patch. For this pretext task, a network is fed with two input patches and is passed through several convolutional layers. The network produces an output with probability to each of eight image patches. This can be taken as a classification problem with 8 classes where the input patch is assigned to one of these 8 classes to be considered as relative patch to the input patch.
 
-![](https://prabinnepal.com/wp-content/uploads/2020/12/context_prediction.png)
+<div align="center"><img src="/images/context_prediction.png"></div>
 
-The algorithm receives two patches in one of these eight  
+<p align="center">The algorithm receives two patches in one of these eight  
 possible spatial arrangements, without any context, and must then  
-classify which configuration was sampled  
-[source](https://arxiv.org/pdf/1505.05192.pdf)
+  classify which configuration was sampled (<a href="https://arxiv.org/pdf/1505.05192.pdf">source</a>)</p>
+
 
 More details at: [Unsupervised Visual Representation Learning by Context Prediction](https://arxiv.org/pdf/1505.05192.pdf)
 
