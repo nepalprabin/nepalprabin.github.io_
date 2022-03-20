@@ -9,16 +9,7 @@ Major interests:
 - Artificial Intelligence
 - Medical Imaging
 - Self-supervised Learning
+- Natural Language Processing
 - Learning new languages
 - Writing
 
-
-My working philosophies:
-
-- Communication and collaboration with other developers and stakeholders is the key to a successful project
-- Use of right tool for the job. A programming language is just a tool!
-- Make yourself better everyday
-### - Most important: Believe in yourself (The power to conquer the world is with in you!!
-
-
-### Besides programming I am interested in sports (football and cricket) and reading novels.
