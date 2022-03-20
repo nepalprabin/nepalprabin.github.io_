@@ -20,7 +20,7 @@ To illustrate this in another way, you're told to chose a picture that is simila
 
 Contrastive learning approaches only need to define the similarity distribution in order to sample a positive input $x^{+} \sim\ p^{+}$
 
-Contrastive learning approaches only need to define the similarity distribution in order to sample a positive input $`x^{+} \sim\ p^{+}(.|x)`$, and a data distribution for a negative input $x^{-} \sim\ p^{-}(.|x)$, with respect to an input sample $x$. The goal of Contrastive learning is: the representation of similar samples should be mapped close together, while that of dissimilar samples should be further away from embedding space.
+Contrastive learning approaches only need to define the similarity distribution in order to sample a positive input $x^{+} \sim\ {p^{+}(.|x)}$, and a data distribution for a negative input $x^{-} \sim\ p^{-}(.|x)$, with respect to an input sample $x$. The goal of Contrastive learning is: the representation of similar samples should be mapped close together, while that of dissimilar samples should be further away from embedding space.
  
 > Source: [Contrastive Representation Learning: A Framework and Review](https://arxiv.org/abs/2010.05113)
 
