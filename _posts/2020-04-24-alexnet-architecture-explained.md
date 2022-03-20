@@ -21,9 +21,9 @@ AlexNet solves the problem of image classification with subset of ImageNet datas
 
 The input to AlexNet is an RGB image of size 256\*256. This mean that all the images in training set and test images are of size 256\*256. If the input image is not 256\*256, image is rescaled such that shorter size is of length 256, and cropped out the central 256\*256 patch from the resulting image.
 
-![](https://prabinnepal.com/wp-content/uploads/2020/09/AlexNet-Resize-Crop-Input.jpg)
+<div align="center"><img src="/images/AlexNet-Resize-Crop-Input.jpg"></div>
 
-[source](https://www.learnopencv.com/wp-content/uploads/2018/05/AlexNet-Resize-Crop-Input.jpg)
+<p align=center><a href="https://www.learnopencv.com/wp-content/uploads/2018/05/AlexNet-Resize-Crop-Input.jpg">source</a></p>
 
 The image is trained with raw RGB values of pixels. So, if input image is grayscale, it is converted into RGB image . Images of size 257\*257 were generated from 256\*256 images through random crops and it is feed to the first layer of AlexNet.
 
@@ -31,11 +31,9 @@ The image is trained with raw RGB values of pixels. So, if input image is graysc
 
 AlexNet contains five convolutional layers and three fully connected layers - total of eight layers. AlexNet architecture is shown below:
 
-![](https://prabinnepal.com/wp-content/uploads/2020/09/AlexNet-1.png)
+<div align="center"><img src="/images/AlexNet-1.png"></div>
 
-AlexNet Architecture
-
-[source](https://www.learnopencv.com/wp-content/uploads/2018/05/AlexNet-1.png)
+<p align=center><a href="https://www.learnopencv.com/wp-content/uploads/2018/05/AlexNet-1.png">AlexNet Architecture</a></p>
 
 For the first two convolutional layers, each convolutional layers is followed by a Overlapping Max Pooling layer. Third, fourth and fifth convolution layers are directly connected with each other. The fifth convolutional layer is followed by Overlapping Max Pooling Layer, which is then connected to fully connected layers. The fully connected layers have 4096 neurons each and the second fully connected layer is feed into a softmax classifier having 1000 classes. 
 
@@ -45,11 +43,11 @@ The standard way of introducing nonlinearity is using tanh: f(x) = tanh(x) where
 
 These are saturating nonlinearities which are much slow than non-saturating nonlinearity f(x) = max(0, x), in terms of training time with gradient descent.
 
-![](https://prabinnepal.com/wp-content/uploads/2020/09/activation-functions.png)
+<div align="center"><img src="/images/activation-functions.png"></div>
 
-fig. (Tanh and Relu activation functions)
+<p align="center">fig. (Tanh and Relu activation functions)</p>
 
-Saturating nonlinearities**:** These functions have a compact range, meaning that they compress the neural response into a bounded subset of the real numbers. The LOG compresses inputs to outputs between 0 and 1, the TAN H between -1 and 1. These functions display limiting behavior at the boundaries.
+**Saturating nonlinearities:** These functions have a compact range, meaning that they compress the neural response into a bounded subset of the real numbers. The LOG compresses inputs to outputs between 0 and 1, the TAN H between -1 and 1. These functions display limiting behavior at the boundaries.
 
 Training network with non-saturating nonlinearity is faster than that of saturating non-linearity.
 
@@ -77,11 +75,9 @@ The first form of data augmentation is translating the image and horizontal refl
 
 Dropout is a regularization technique to reduce overfitting and improving generalization of deep neural networks. 'Dropout' refers to dropping out units(hidden and visible) in a neural network. We can interpret dropout as the probability of training  a given node in a layer, where 1.0 means no dropout and 0.5 means 50% of hidden neurons are ignored.
 
-![](https://prabinnepal.com/wp-content/uploads/2020/09/dropout.png)
+<div align="center"><img src="/images/dropout.png"></div>
 
-Dropout
-
-[source](http://jmlr.org/papers/v15/srivastava14a.html)
+<p align="center"><a href="http://jmlr.org/papers/v15/srivastava14a.html">Dropout</a></p>
 
 References:
 
