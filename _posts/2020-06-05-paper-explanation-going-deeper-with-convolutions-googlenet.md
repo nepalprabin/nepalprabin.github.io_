@@ -10,12 +10,12 @@ coverImage: "googlenet.png"
 Google proposed a deep Convolution Neural Network named inception that achieved top results for classification and detection in ILSVRC 2014.
 
 > The ImageNet Large Scale Visual Recognition Challenge (ILSVRC) evaluates algorithms for object detection and image classification at large scale. One high level motivation is to allow researchers to compare progress in detection across a wider variety of objects -- taking advantage of the quite expensive labeling effort. Another motivation is to measure the progress of computer vision for large scale image indexing for retrieval and annotation
-> 
+
 > [http://www.image-net.org/challenges/LSVRC/](http://www.image-net.org/challenges/LSVRC/)
 
 "Going deeper with convolutions" is actually inspired by an internet meme: 'We need to go deeper'
 
-![](https://prabinnepal.com/wp-content/uploads/2020/09/we-need-to-go-deeper.jpg)
+<div align="center"><img src="/images/we-need-to-go-deeper.jpg"></div>
 
 In ILSVRC 2014, GoogLeNet used 12x fewer parameters than [AlexNet](https://prabinnepal.com/alexnet-architecture-explained/) used 2 years ago in 2012 competition.
 
@@ -31,7 +31,7 @@ Another drawback of increased network size is increased use of computational res
 
 To solve these issues, this paper comes up with the solution to form a 'wider' network rather than 'deeper' which is called as Inception module.
 
-![](https://prabinnepal.com/wp-content/uploads/2020/09/naive-inception.png)
+<div align='center'><img src='/images/naive-inception.png'></div>
 
 The 'naive' inception module performs convolutions on input from previous layer, with 3 different size of kernels or filters specifically 1x1, 3x3, and 5x5. In addition to this, max pooling is also performed. Outputs are then concatenated and sent to the next inception module.
 
@@ -47,7 +47,7 @@ Computation for above convolution operation is:
 
 To bring down such a great number of operations, dimensionality reduction can be used. Here, it is done by convolving with 1x1 filters before performing convolution with bigger filters.
 
-![](https://prabinnepal.com/wp-content/uploads/2020/09/5x5-naive-with-dimensionality-reduction-1024x536.png)
+<div align='center'><img src='/images/5x5-naive-with-dimensionality-reduction.png'></div>
 
 **5×5 Convolution with Dimensionality Reduction**
 
@@ -64,7 +64,7 @@ So, after applying dimensionality reduction, our inception module becomes:
 
 GoogLeNet was built using inception module with dimensionality reduction. GoogLeNet consists of 22 layers deep network (27 with pooling layers included). All the convolutions, including the convolutions inside inception module , uses rectified linear activation.
 
-![](https://prabinnepal.com/wp-content/uploads/2020/09/googlenet_architecture.png)
+<div align='center'><img src='/images/googlenet_architecture.png'></div>
 
 **GoogLeNet incarnation of the Inception architecture.** Source: Original Paper
 
