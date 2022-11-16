@@ -1,12 +1,14 @@
 # Text Summarization
 
 <h1> What is text summarization? </h1>
+<div align="justify">
 Text summarization is one of the Natural Language Processing (NLP) tasks where documents/texts are shortened automatically while holding the same semantic meaning. Summarization process generates short, fluent and accurate summary of the long documents. The main idea of text summarization is to find the subset of the most important information from the entire document and present it in a human readable format. Text summarization has its application in other NLP tasks such as Question Answering (QA), Text Classification, Text Generation and other fields.
+
 
 <h1> Types of summarization</h1>
 Based on how the texts are extracted from the documents, the summarization process can be divided into two types: extractive summarization and abstractive summarization. 
   <h2> 1. Extractive Summarization</h2>
-        Extractive summarization picks up the most important sentences directly from the documents and forms a coherent summary. This is done using a scoring function. Extractive summarization takes a sentence as an input and produces a probability vector as the output. This probability vector represents the probability of a sentence being included in the summary. 
+ Extractive summarization picks up the most important sentences directly from the documents and forms a coherent summary. This is done using a scoring function. Extractive summarization takes a sentence as an input and produces a probability vector as the output. This probability vector represents the probability of a sentence being included in the summary. 
 
 
 <h3> Implementing extractive summarization based on word frequency</h3>
@@ -210,4 +212,4 @@ trainer.train()
 
 <h1> Conclusion </h1>
 Summarization helps to generalize the long documents by paraphrasing the important sentences from the whole document. It is very helpful in various applications like summarizing legal contracts, medical documents, news information and many more. 
-
+  </div>
