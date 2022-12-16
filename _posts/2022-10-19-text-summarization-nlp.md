@@ -45,10 +45,9 @@ def frequency_table(text):
 Here we tokenize the sentences using NLTK’s sent_tokenize() method. This separates paragraphs into individual sentences.
   
   
-```python
+``` python
 def tokenize_sentence(text):
     return sent_tokenize(text)
-
 ```
 
 <i>c. Scoring the sentences using term frequency</i>
@@ -56,7 +55,7 @@ def tokenize_sentence(text):
 Here, we score a sentence by its words, by adding frequency of every word present in the sentence excluding stop words. One downside of this approach is, if the sentence is long, the value of frequency increases.
   
   
-```python
+``` python
 def term_frequency_score(sentence, freq_table):
     # dictionary to keep the score
     sentence_value = dict()
@@ -76,7 +75,7 @@ def term_frequency_score(sentence, freq_table):
 
 After calculating the term frequency, we calculate the threshold score.
 
-```python
+``` python
 def calculate_average_score(sentence_value):
     # To compare the sentences within the text, we assign a score.
     sum_values = 0
@@ -87,13 +86,13 @@ def calculate_average_score(sentence_value):
     average = int(sum_values / len(sentence_value))
 
     return average
-  ```
+```
 
 
   <i>e. Generating the summary based on the threshold value</i>
   
   Based on the threshold value, we generate the summary of the text.
-  ```python
+  ``` python
   def create_summary(sentences, sentence_value, threshold):
     # Applying the threshold value and storing sentences in an order into the summary.
     summary = ''
@@ -124,7 +123,7 @@ Huggingface Transformers provide various pre-trained models to perform NLP tasks
 <h3>Basic transformer pipeline for summarization</h3>
 Huggingface transformers provide an easy to use model for inference using pipeline. These pipelines are the objects that hide complex code and provide a simple API to perform various tasks.
 
-```python
+``` python
 from transformers import pipeline
 
 classifier = pipeline("summarization")
@@ -132,7 +131,9 @@ text = """Acnesol Gel is an antibiotic that fights bacteria. It is used to treat
 classifier(text)
 
 ```
-```python
+  
+  
+``` python
 Result:
 [{'summary_text': ' Acnesol Gel is an antibiotic that fights bacteria that causes pimples . It is used to treat acne, which appears as spots or pimples on your face, chest or back . The medicine is only meant for external use and should be used as advised by your doctor .'}]
 ```
@@ -144,7 +145,7 @@ The <code>pipeline()</code> takes the name of the task to be performed (if we wa
 Summarization using abstractive technique is hard as compared to extractive summarization as we need to generate new text as the output. Different architectures like GTP, T5, BART are used to perform summarization tasks. We will be using the PubMed dataset. It contains datasets of long and structured documents obtained from PubMed OpenAccess repositories.
 from datasets import load_dataset
 
-```python
+``` python
 pubmed = load_dataset("ccdv/pubmed-summarization")
 ```
 
@@ -153,7 +154,7 @@ tokenizer = AutoTokenizer.from_pretrained('facebook/bart-large-cnn')
 
 
 The next step is to preprocess the data. Before training the data, we need to convert our data into expected model input format. 
-```python
+``` python
 def preprocess_function(examples):
     inputs = [doc for doc in examples["article"]]
     model_inputs = tokenizer(inputs, max_length=1024, truncation=True)
@@ -165,24 +166,28 @@ def preprocess_function(examples):
 ```
 
 We need to apply the processing function over the entire dataset. Setting flag <code>batched=True</code> helps to speed up the processing of multiple elements of the dataset at once.
-```python
+  
+  
+``` python
 tokenized_pubmed = pubmed.map(preprocess_function, batched=True)
 ```
 
 Next, we need to create a batch for all the examples. Huggingface provides a data collator to create a batch for the examples.
-```python
+  
+  
+``` python
 tokenized_datasets = tokenized_pubmed.remove_columns(pubmed["train"].column_names)
 data_collator = DataCollatorForSeq2Seq(tokenizer=tokenizer, model="facebook/bart-large-cnn")
 ```
 
 Huggingface provides various pre-trained models that we can leverage to perform a variety of machine learning tasks. 
-```python
+``` python
 model = AutoModelForSeq2SeqLM.from_pretrained(model)
 ```
 
 Before training the model, we need to define our training hyperparamaters using training arguments. Since text summarization is a sequence to sequence tasks, we are using Seq2SeqTrainingArguments. And, we need to define our trainer by passing training and test dataset along with training arguments. 
 
-```python
+``` python
 # training arguments
 training_arguments = Seq2SeqTrainingArguments(
             output_dir='./results',
@@ -206,9 +211,10 @@ trainer = Seq2SeqTrainer(
     tokenizer=tokenizer,
     data_collator=data_collator  
     )
-   ```
+ ```
 
 The last step is to call <code>train()</code> to fine-tune our model.
+  
 ```python
 trainer.train()
 ```
