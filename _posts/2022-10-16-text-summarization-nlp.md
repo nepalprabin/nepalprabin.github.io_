@@ -20,7 +20,7 @@ We can implement extractive summarization using word frequency in five simple st
 We count the frequency of the words present in the text and create a frequency table which is a dictionary to store the count. While creating the frequency table, we do not account for the stop words present in the text and remove those words.
 
  
-```python
+``` python
 def frequency_table(text):
     # all unique stopwords of english
     stop_words = set(stopwords.words("english"))
@@ -38,8 +38,19 @@ def frequency_table(text):
             freq_table[word] = 1
 
     return freq_table
-   ```
-
+```
+``` python
+def gram_matrix(features, normalize=True):
+    N, C, H, W = features.size()
+    features = features.reshape(N, C,-1)
+    
+    gram_matrix = torch.zeros([N,C,C]).to(features.device).to(features.dtype)
+    for i in range(N):
+      gram_matrix[i,:] = torch.mm( features[i,:], features[i,:].t())
+      if (normalize):
+        gram_matrix /= float(H*W*C)
+      return gram_matrix
+```
 <i>b. Tokenizing the sentences</i>
 
 Here we tokenize the sentences using NLTK’s sent_tokenize() method. This separates paragraphs into individual sentences.
