@@ -19,7 +19,7 @@ We can implement extractive summarization using word frequency in five simple st
 
 We count the frequency of the words present in the text and create a frequency table which is a dictionary to store the count. While creating the frequency table, we do not account for the stop words present in the text and remove those words.
 
-```python
+```
 def frequency_table(text):
     # all unique stopwords of english
     stop_words = set(stopwords.words("english"))
