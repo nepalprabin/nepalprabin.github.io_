@@ -19,7 +19,8 @@ We can implement extractive summarization using word frequency in five simple st
 
 We count the frequency of the words present in the text and create a frequency table which is a dictionary to store the count. While creating the frequency table, we do not account for the stop words present in the text and remove those words.
 
-```
+ 
+```python
 def frequency_table(text):
     # all unique stopwords of english
     stop_words = set(stopwords.words("english"))
@@ -42,6 +43,8 @@ def frequency_table(text):
 <i>b. Tokenizing the sentences</i>
 
 Here we tokenize the sentences using NLTK’s sent_tokenize() method. This separates paragraphs into individual sentences.
+  
+  
 ```python
 def tokenize_sentence(text):
     return sent_tokenize(text)
@@ -51,6 +54,8 @@ def tokenize_sentence(text):
 <i>c. Scoring the sentences using term frequency</i>
 
 Here, we score a sentence by its words, by adding frequency of every word present in the sentence excluding stop words. One downside of this approach is, if the sentence is long, the value of frequency increases.
+  
+  
 ```python
 def term_frequency_score(sentence, freq_table):
     # dictionary to keep the score
